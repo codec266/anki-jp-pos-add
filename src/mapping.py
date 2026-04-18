@@ -1,4 +1,3 @@
-from aqt import mw
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QDialog, QLabel, QDialogButtonBox, QVBoxLayout, QComboBox, QFormLayout
 from .config import load_settings, save_settings
