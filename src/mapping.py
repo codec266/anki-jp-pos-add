@@ -13,7 +13,7 @@ class FieldMapDialog(QDialog):
         self.is_remove = is_remove
 
         layout = QVBoxLayout(self)
-        layout.addWidget(QLabel("Default fields not found. Please map them:"))
+        layout.addWidget(QLabel("Select Target Fields:"))
 
         form = QFormLayout()
 
