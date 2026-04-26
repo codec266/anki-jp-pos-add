@@ -1,7 +1,9 @@
 import os
-from PyQt6.QtWidgets import QMenu
+
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QMenu, QMessageBox
 from aqt import mw, gui_hooks
-from aqt.utils import showText, tooltip
+from aqt.utils import showText, tooltip, showInfo
 from .service import process_note
 from .bulk import bulk_add, bulk_remove, find_empty_pos, reset_mappings
 from .mapping import resolve_mappings
@@ -40,10 +42,52 @@ def add_pos(editor):
 
 
 def about_dialog():
-    showText(
-        "Japanese Part of Speech",
-        title='About',
-    )
+    addon_dir = os.path.dirname(__file__)
+    img_path = os.path.join(addon_dir, "icon.png").replace("\\", "/")
+
+    about_text = f"""
+    <div style="font-family: sans-serif;">
+        <table style="border-spacing: 0;">
+            <tr>
+                <td style="padding-right: 15px;" valign="top">
+                    <img src="file:///{img_path}" width="80" height="80">
+                </td>
+                <td valign="top">
+                    <h3 style="margin-top: 0;">Japanese Part of Speech</h3>
+                    <p style="margin-bottom: 0;">An offline Anki add-on that fetches and assigns Japanese parts of speech to your vocabulary notes.</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <b>Add-on by:</b> codec266<br>
+            <b>Version:</b> 1.0.0<br>
+            <b>License:</b> MIT
+        </p>
+
+        <p>
+            <b>Links:</b><br>
+            <a href="https://github.com/codec266/anki-jp-pos-add">GitHub</a> | 
+            <a href="https://ko-fi.com/codec266">Support on Ko-fi</a>
+        </p>
+
+        <hr>
+
+        <p style="font-size: 11px;">
+            Dictionary data is based on <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a>, property of the 
+            Electronic Dictionary Research and Development Group, and is used in 
+            conformance with the Group's license.
+        </p>
+    </div>
+    """
+
+    msg_box = QMessageBox(mw)
+    msg_box.setWindowTitle("About")
+    msg_box.setTextFormat(Qt.TextFormat.RichText)
+    msg_box.setText(about_text)
+    msg_box.setIcon(QMessageBox.Icon.NoIcon)
+    msg_box.setStandardButtons(QMessageBox.StandardButton.Ok)
+    msg_box.exec()
 
 # add menu items
 pos_menu = QMenu('Part of Speech', mw)
