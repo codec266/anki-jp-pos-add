@@ -3,7 +3,7 @@
     <p><em>Add japanese parts of speech to your cards!</em></p>
 <p>
 
-[![AnkiWeb](https://img.shields.io/badge/AnkiWeb-Download-blue?logo=anki)](#)
+[![AnkiWeb](https://img.shields.io/badge/AnkiWeb-Download-blue?logo=anki)](https://ankiweb.net/shared/info/1808942038)
 [![License](https://img.shields.io/badge/license-MIT-green?logo=open-source-initiative)](LICENSE)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-red?logo=ko-fi)](https://ko-fi.com/codec266)
 [![JMdict](https://img.shields.io/badge/JMdict-EDRDG-blue?logo=sqlite)](https://www.edrdg.org/jmdict/j_jmdict.html)</p>
